@@ -1,612 +1,382 @@
 🚀 INFINITE CORE BOT
 
-Production-grade Discord bot for hosting automation, payments, tickets, server management and local AI.
+<p align="center">
+  <b>Production-Grade Discord Automation for Hosting, Payments, Tickets & Local AI</b>
+</p><p align="center">
+  ⚡ Fast &nbsp;•&nbsp; 🤖 AI Powered &nbsp;•&nbsp; 🔐 Secure &nbsp;•&nbsp; ♾️ 24/7
+</p><p align="center">"Python" (https://img.shields.io/badge/Python-3.10%2B-blue)
+"Discord.py" (https://img.shields.io/badge/discord.py-2.3%2B-5865F2)
+"Ollama" (https://img.shields.io/badge/AI-Ollama-black)
+"License" (https://img.shields.io/badge/License-MIT-yellow)
 
-""Python" (https://img.shields.io/badge/Python-3.10%2B-blue.svg)" (https://www.python.org/)
-""Discord.py" (https://img.shields.io/badge/discord.py-2.3%2B-5865F2.svg)" (https://github.com/Rapptz/discord.py)
-""License" (https://img.shields.io/badge/License-MIT-yellow.svg)" (LICENSE)
+</p>---
 
-GitHub Repository: https://github.com/manshulehra3-star/Core-Bot
+🌐 Official Repository
+
+INFINITE CORE BOT
+
+GitHub:
+https://github.com/manshulehra3-star/Core-Bot
 
 ---
 
 ✨ Features
 
-- Discord bot automation
-- Hosting management
-- Payment logging
-- Ticket system
-- Welcome/leave system
-- Local AI using Ollama
-- VPS/PANEL API integration
-- SQLite database
-- 24/7 systemd service
-- Automatic restart after VPS reboot
-- GitHub-based updates
+┌──────────────────────────────────────────────────┐
+│              🚀 INFINITE CORE BOT                │
+├──────────────────────────────────────────────────┤
+│                                                  │
+│  🤖 Discord Automation                           │
+│  🎫 Advanced Ticket System                       │
+│  💳 Payment Management                           │
+│  🖥️ VPS / Hosting Integration                    │
+│  🎮 Minecraft Panel Integration                  │
+│  🧠 Local AI with Ollama                         │
+│  🗄️ SQLite Database                              │
+│  🔄 GitHub Update Support                        │
+│  ♾️ 24/7 Systemd Service                         │
+│  🔥 Automatic Restart                            │
+│  ⚡ Auto Start After VPS Reboot                  │
+│                                                  │
+└──────────────────────────────────────────────────┘
 
 ---
 
-🖥️ System Requirements
+🖥️ Requirements
 
-Supported OS
+Supported Operating Systems
 
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
 - Debian 12
 
-Minimum
+Recommended Hardware
 
-- 4 GB RAM
-- 2 vCPU
-- 10 GB free disk
-- Python 3.10+
+CPU      : 8+ vCPU
+RAM      : 16–32 GB
+Storage  : SSD / NVMe
+Python   : 3.10+
 
-Recommended for Local AI
-
-- 16–32 GB RAM
-- 8+ vCPU
-- SSD/NVMe storage
+«💡 Local AI inference performance depends on your VPS hardware and selected Ollama model.»
 
 ---
 
 ⚡ ONE-COMMAND INSTALLATION
 
-On a fresh Ubuntu/Debian VPS, run:
+🚀 Install Everything Automatically
 
-sudo apt update && sudo apt upgrade -y && sudo apt install -y python3 python3-venv python3-pip git curl && git clone https://github.com/manshulehra3-star/Core-Bot.git && cd Core-Bot && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt && curl -fsSL https://ollama.com/install.sh | sh && sudo systemctl enable --now ollama && ollama pull qwen3.5:0.8b
+The repository includes an automated "install.sh" installer.
 
-After installation:
+You do not need to manually install Python, pip, Git, Ollama, dependencies or systemd.
 
-cd Core-Bot
-source venv/bin/activate
-cp .env.example .env
-nano .env
+Simply copy the command below and run it on your VPS:
 
-Configure your ".env" file before starting the bot.
+```curl -fsSL https://raw.githubusercontent.com/manshulehra3-star/Core-Bot/main/install.sh | sudo bash```
 
----
+🛠️ The installer automatically handles
 
-🛠️ Manual Installation
+① System package update
+        ↓
+② Python installation
+        ↓
+③ Python virtual environment
+        ↓
+④ Git & required packages
+        ↓
+⑤ INFINITE CORE BOT download
+        ↓
+⑥ Python dependencies
+        ↓
+⑦ Ollama installation
+        ↓
+⑧ Local AI model installation
+        ↓
+⑨ .env preparation
+        ↓
+⑩ Systemd service
+        ↓
+⑪ 24/7 bot service
+        ↓
+⑫ Automatic startup after reboot
 
-If you prefer installing step-by-step, follow the sections below.
+✅ After installation
 
-Step 1 — Update System
+Configure your credentials:
 
-sudo apt update
-sudo apt upgrade -y
+```nano /opt/infinite-core-bot/.env```
 
-Step 2 — Install Dependencies
+Then restart:
 
-sudo apt install -y python3 python3-venv python3-pip git curl
-
-Step 3 — Clone Repository
-
-git clone https://github.com/manshulehra3-star/Core-Bot.git
-cd Core-Bot
-
-Step 4 — Create Python Virtual Environment
-
-python3 -m venv venv
-source venv/bin/activate
-
-Step 5 — Upgrade pip
-
-pip install --upgrade pip
-
-Step 6 — Install Python Requirements
-
-pip install -r requirements.txt
-
----
-
-🤖 Install Ollama
-
-Install Ollama:
-
-curl -fsSL https://ollama.com/install.sh | sh
-
-Enable and start Ollama:
-
-sudo systemctl enable --now ollama
-
-Verify Ollama:
-
-ollama --version
-
-Check service:
-
-systemctl status ollama
+```systemctl restart infinite-core-bot```
 
 ---
 
-🧠 Install Local AI Model
+🧠 LOCAL AI
 
-INFINITE CORE BOT uses Ollama for local AI.
+INFINITE CORE BOT uses Ollama for local AI inference.
 
-The lightweight model used by default is:
+Default model
 
 qwen3.5:0.8b
 
-Install it:
+Check Ollama:
 
-ollama pull qwen3.5:0.8b
-
-Test it:
-
-ollama run qwen3.5:0.8b
-
-Type:
-
-Hello
-
-Exit with:
-
-/bye
+```ollama --version```
 
 Check installed models:
 
-ollama list
+```ollama list```
+
+Check Ollama service:
+
+```systemctl status ollama```
 
 ---
 
-⚙️ Environment Configuration
+⚙️ ENVIRONMENT CONFIGURATION
 
-Create the environment file:
+Your configuration file is located at:
 
-cp .env.example .env
+```/opt/infinite-core-bot/.env```
 
-Edit it:
+Open it:
 
-nano .env
+```nano /opt/infinite-core-bot/.env```
 
-Use the following structure:
+Configure your:
 
-# ==========================================
-# DISCORD BOT
-# ==========================================
+Discord Bot Token
+Owner ID
+Guild ID
 
-DISCORD_TOKEN=your_bot_token_here
-OWNER_ID=123456789012345678
-GUILD_ID=123456789012345678
+Welcome Channel
+Leave Channel
 
+Ticket Category
+Ticket Logs
 
-# ==========================================
-# DATABASE
-# ==========================================
+Payment Logs
+Payment Owner
 
-DATABASE_PATH=./data/infinite_core.db
+Ollama configuration
 
+SVM / VPS Panel API
+Minecraft Panel API
 
-# ==========================================
-# WELCOME / LEAVE
-# ==========================================
+🔐 Security Warning
 
-WELCOME_CHANNEL_ID=123456789012345678
-LEAVE_CHANNEL_ID=123456789012345678
-WELCOME_DM_ENABLED=true
+Never publish your ".env" file.
 
+It may contain:
 
-# ==========================================
-# TICKETS
-# ==========================================
-
-TICKET_CATEGORY_ID=123456789012345678
-TICKET_LOG_CHANNEL_ID=123456789012345678
-
-
-# ==========================================
-# PAYMENTS
-# ==========================================
-
-PAYMENT_LOG_CHANNEL_ID=123456789012345678
-PAYMENT_OWNER_ID=123456789012345678
-
-
-# ==========================================
-# LOCAL AI / OLLAMA
-# ==========================================
-
-AI_ENABLED=true
-OLLAMA_HOST=http://127.0.0.1:11434
-OLLAMA_MODEL=qwen3.5:0.8b
-
-
-# ==========================================
-# SVM / VPS PANEL
-# ==========================================
-
-SVM_API_URL=https://vps.example.com/api
-SVM_API_KEY=your_svm_api_key_here
-
-
-# ==========================================
-# MINECRAFT PANEL
-# ==========================================
-
-MC_PANEL_API_URL=https://mc.example.com/api
-MC_PANEL_API_KEY=your_mc_panel_api_key_here
-
-Replace all placeholder values with your real credentials and IDs.
-
-Never publish your ".env" file or Discord bot token on GitHub.
+- Discord Bot Token
+- API Keys
+- Panel Credentials
+- Private configuration
 
 ---
 
-🗄️ Database
+♾️ 24/7 SERVICE
 
-The bot uses SQLite by default.
+The installer automatically configures a systemd service.
 
-Database location:
+The bot will:
 
-./data/infinite_core.db
+✅ Run continuously
+✅ Restart automatically if it crashes
+✅ Start automatically after VPS reboot
 
-Create the data directory if required:
+Check status
 
-mkdir -p data
-
----
-
-▶️ Run Bot Manually
-
-Activate the virtual environment:
-
-cd Core-Bot
-source venv/bin/activate
-
-Start the bot:
-
-python3 bot.py
-
-If the bot starts successfully, keep the terminal open while testing.
-
-Stop it with:
-
-CTRL+C
-
----
-
-🔄 24/7 Production Setup
-
-For production, use systemd instead of keeping the bot running inside SSH.
-
-Create the service:
-
-sudo nano /etc/systemd/system/infinite-core-bot.service
-
-Add:
-
-[Unit]
-Description=INFINITE CORE Discord Bot
-After=network-online.target ollama.service
-Wants=network-online.target
-
-[Service]
-Type=simple
-User=root
-WorkingDirectory=/root/Core-Bot
-Environment="PATH=/root/Core-Bot/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
-ExecStart=/root/Core-Bot/venv/bin/python /root/Core-Bot/bot.py
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-
-«If your repository is installed somewhere other than "/root/Core-Bot", change the paths accordingly.»
-
-Reload systemd:
-
-sudo systemctl daemon-reload
-
-Enable automatic startup:
-
-sudo systemctl enable infinite-core-bot
-
-Start the bot:
-
-sudo systemctl start infinite-core-bot
-
-Check status:
-
-sudo systemctl status infinite-core-bot
-
----
-
-📋 View Live Bot Logs
-
-journalctl -u infinite-core-bot -f
-
-View recent logs:
-
-journalctl -u infinite-core-bot -n 100 --no-pager
-
-View logs from the current boot:
-
-journalctl -u infinite-core-bot -b --no-pager
-
----
-
-🔧 Service Commands
+```systemctl status infinite-core-bot```
 
 Start
 
-sudo systemctl start infinite-core-bot
+```systemctl start infinite-core-bot```
 
 Stop
 
-sudo systemctl stop infinite-core-bot
+```systemctl stop infinite-core-bot```
 
 Restart
 
-sudo systemctl restart infinite-core-bot
+```systemctl restart infinite-core-bot```
 
-Status
+Enable on boot
 
-sudo systemctl status infinite-core-bot
-
-Enable on Boot
-
-sudo systemctl enable infinite-core-bot
-
-Disable on Boot
-
-sudo systemctl disable infinite-core-bot
+```systemctl enable infinite-core-bot```
 
 ---
 
-🔄 Update Bot From GitHub
+📋 LIVE LOGS
 
-Go to the project:
+View live bot logs:
 
-cd /root/Core-Bot
+```journalctl -u infinite-core-bot -f```
 
-Stop the bot:
+View the latest 100 logs:
 
-sudo systemctl stop infinite-core-bot
+```journalctl -u infinite-core-bot -n 100 --no-pager```
 
-Pull the latest version:
+View Ollama logs:
 
-git pull origin main
-
-Activate the virtual environment:
-
-source venv/bin/activate
-
-Update Python dependencies:
-
-pip install -r requirements.txt --upgrade
-
-Start the bot again:
-
-sudo systemctl start infinite-core-bot
-
-Check status:
-
-sudo systemctl status infinite-core-bot
+```journalctl -u ollama -n 100 --no-pager```
 
 ---
 
-⚡ One-Command Update
+🔄 UPDATE
 
-Once the bot is already installed:
+Update the bot from GitHub:
 
-cd /root/Core-Bot && sudo systemctl stop infinite-core-bot && git pull origin main && source venv/bin/activate && pip install -r requirements.txt --upgrade && sudo systemctl start infinite-core-bot && sudo systemctl status infinite-core-bot --no-pager
+```cd /opt/infinite-core-bot && systemctl stop infinite-core-bot && git pull origin main && source venv/bin/activate && pip install -r requirements.txt --upgrade && systemctl restart infinite-core-bot```
 
----
+After updating, check:
 
-🔁 Restart Everything
-
-Restart Ollama and the bot:
-
-sudo systemctl restart ollama && sudo systemctl restart infinite-core-bot
-
-Check both:
-
-systemctl status ollama --no-pager
-sudo systemctl status infinite-core-bot --no-pager
+```systemctl status infinite-core-bot```
 
 ---
 
-🧪 Health Checks
+🩺 HEALTH CHECK
 
-Check Python
+Check the bot:
 
-python3 --version
+```systemctl is-active infinite-core-bot```
 
-Check pip
+Check Ollama:
 
-pip3 --version
+```systemctl is-active ollama```
 
-Check Git
+Check Ollama API:
 
-git --version
+```curl -fsS http://127.0.0.1:11434/api/tags```
 
-Check Ollama
+Check Python:
 
-ollama --version
-
-Check Ollama API
-
-curl http://127.0.0.1:11434/api/tags
-
-Check Installed AI Models
-
-ollama list
-
-Check Bot Service
-
-sudo systemctl is-active infinite-core-bot
-
-Expected:
-
-active
+```python3 --version```
 
 ---
 
-❗ Troubleshooting
+🗂️ INSTALLATION DIRECTORY
 
-Bot Does Not Start
+The bot is installed at:
 
-Check:
+/opt/infinite-core-bot
 
-sudo systemctl status infinite-core-bot
+Typical structure:
 
-Then:
-
-journalctl -u infinite-core-bot -n 100 --no-pager
-
----
-
-Check ".env"
-
-cd /root/Core-Bot
-cat .env
-
-Do not share the output publicly because it contains secrets.
-
----
-
-Discord Token Error
-
-Verify:
-
-DISCORD_TOKEN=your_real_bot_token
-
-Make sure there are no unnecessary spaces or quotes.
-
----
-
-Ollama Not Running
-
-Run:
-
-sudo systemctl restart ollama
-
-Check:
-
-systemctl status ollama
-
-Test:
-
-curl http://127.0.0.1:11434/api/tags
-
----
-
-AI Model Missing
-
-Check:
-
-ollama list
-
-Install:
-
-ollama pull qwen3.5:0.8b
-
----
-
-Python Dependency Error
-
-cd /root/Core-Bot
-source venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-
-Then:
-
-sudo systemctl restart infinite-core-bot
-
----
-
-Git Pull Error
-
-Check repository status:
-
-cd /root/Core-Bot
-git status
-
-If you have local changes, back them up before using destructive Git commands.
-
----
-
-🔐 Security
-
-Never upload these to GitHub:
-
-.env
-*.db
-*.sqlite
-*.sqlite3
-__pycache__/
-venv/
-
-Recommended ".gitignore":
-
-.env
-*.db
-*.sqlite
-*.sqlite3
-__pycache__/
-*.pyc
-venv/
-.venv/
-
-Never expose:
-
-- Discord bot token
-- API keys
-- Panel API keys
-- Database credentials
-- Private SSH keys
-
----
-
-📁 Recommended Project Structure
-
-Core-Bot/
+/opt/infinite-core-bot/
+│
 ├── bot.py
 ├── requirements.txt
 ├── .env
 ├── .env.example
-├── .gitignore
 ├── infinite-core-bot.service
+│
 ├── data/
 │   └── infinite_core.db
+│
 └── venv/
 
 ---
 
-🚀 Quick Start
+🔐 SECURITY
 
-Fresh VPS:
+Add the following to ".gitignore":
 
-sudo apt update && sudo apt upgrade -y && sudo apt install -y python3 python3-venv python3-pip git curl && git clone https://github.com/manshulehra3-star/Core-Bot.git && cd Core-Bot && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt && curl -fsSL https://ollama.com/install.sh | sh && sudo systemctl enable --now ollama && ollama pull qwen3.5:0.8b
+.env
+*.db
+*.sqlite
+*.sqlite3
+venv/
+.venv/
+__pycache__/
+*.pyc
 
-Configure:
+❌ Never upload
 
-cd /root/Core-Bot && cp .env.example .env && nano .env
+.env
+Discord tokens
+API keys
+Private keys
+Database files containing sensitive data
+
+---
+
+🛠️ TROUBLESHOOTING
+
+Bot is not starting
+
+Run:
+
+```systemctl status infinite-core-bot```
+
+Then:
+
+```journalctl -u infinite-core-bot -n 100 --no-pager```
+
+---
+
+```Ollama is not working```
+
+Restart:
+
+```systemctl restart ollama```
+
+Check:
+
+```systemctl status ollama```
 
 Test:
 
-cd /root/Core-Bot && source venv/bin/activate && python3 bot.py
-
-Production:
-
-sudo cp /root/Core-Bot/infinite-core-bot.service /etc/systemd/system/ && sudo systemctl daemon-reload && sudo systemctl enable --now infinite-core-bot
-
-Logs:
-
-journalctl -u infinite-core-bot -f
+```curl http://127.0.0.1:11434/api/tags```
 
 ---
 
-📜 License
+AI model is missing
+
+Check:
+
+```ollama list```
+
+Install the default model:
+
+```ollama pull qwen3.5:0.8b```
+
+Then:
+
+```systemctl restart infinite-core-bot```
+
+---
+
+📌 QUICK COMMANDS
+
+Action| Command
+🚀 Start| "systemctl start infinite-core-bot"
+⛔ Stop| "systemctl stop infinite-core-bot"
+🔄 Restart| "systemctl restart infinite-core-bot"
+📊 Status| "systemctl status infinite-core-bot"
+📋 Logs| "journalctl -u infinite-core-bot -f"
+🧠 Ollama| "systemctl status ollama"
+🤖 AI Models| "ollama list"
+
+---
+
+📜 LICENSE
 
 This project is licensed under the MIT License.
 
-See "LICENSE" (LICENSE) for details.
+See the "LICENSE" file for details.
 
 ---
 
-❤️ INFINITE CORE
+💙 INFINITE CORE
 
-Built for reliable hosting automation, Discord management and local AI-powered infrastructure.
+<p align="center">POWERFUL AUTOMATION. ZERO LIMITS.
+
+Built for modern hosting infrastructure, Discord automation & local AI.
+
+</p>---
+
+<p align="center">
+  ⭐ Star the repository if you find it useful!
+</p>
