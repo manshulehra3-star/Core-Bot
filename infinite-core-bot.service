@@ -1,0 +1,15 @@
+[Unit]
+Description=Infinite Core Bot Service
+After=network.target ollama.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/infinite-core-bot
+ExecStart=/opt/infinite-core-bot/venv/bin/python3 bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
